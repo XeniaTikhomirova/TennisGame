@@ -10,9 +10,8 @@ class Player {
         score = aScore;
     }
 
-    public string Greeting(){
-        string greet = "Creating Player with the name " +  name + "...";
-        return greet;
+    public void Greeting(){
+        Console.WriteLine("Creating Player with the name " +  name + "...");
     }
 
     public int GetCommitment(){
@@ -39,7 +38,6 @@ class Player {
             else if (commitment == 0) {
                 Console.WriteLine($"Eine falsche Zahl! {commitment} ist 0. {name}, deine Zahl muss gleich 0 nicht sein");
             }
-            //falls es keine Fehler gibt:
 
             else {
                 break;
@@ -47,14 +45,18 @@ class Player {
         }
     
         //todo:commitment has to be the correct value, if the input has been changed in codelines 30-33
-        
-        score -= commitment;   
+
+        //score -= commitment;  
+
         Console.WriteLine($"Commitment bei {name} ist {commitment}");
         //todo: returnvalue same as comment from line 35
         return commitment;
-    
     }
-    
+
+    public int doSubstract(int commitment){
+        score -= commitment;
+        return score;
+    }
     
     public int Age {
         get { return Age; }
