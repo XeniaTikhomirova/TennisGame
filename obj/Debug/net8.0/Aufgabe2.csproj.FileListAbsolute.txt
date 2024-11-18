@@ -12,3 +12,4 @@ C:\Users\Xenia\Xenia_Praktikum\Aufgabe2\obj\Debug\net8.0\refint\Aufgabe2.dll
 C:\Users\Xenia\Xenia_Praktikum\Aufgabe2\obj\Debug\net8.0\Aufgabe2.pdb
 C:\Users\Xenia\Xenia_Praktikum\Aufgabe2\obj\Debug\net8.0\Aufgabe2.genruntimeconfig.cache
 C:\Users\Xenia\Xenia_Praktikum\Aufgabe2\obj\Debug\net8.0\ref\Aufgabe2.dll
+C:\Users\Xenia\Xenia_Praktikum\Aufgabe2\obj\Debug\net8.0\Aufgabe2.sourcelink.json

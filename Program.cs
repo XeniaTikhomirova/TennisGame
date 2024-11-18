@@ -1,7 +1,10 @@
 ﻿//Spezifische Flage:
+using System.Reflection.Metadata;
+
 bool game = true;
-//Der Ball steht für das Ergebniss jedes Durchganges. Die möglichen Werte sind: von -3 bis 3.
 int ball = 0;
+int commitment1;
+int commitment2;
 
 Console.WriteLine("Das Spiel startet jetzt");
 
@@ -10,55 +13,46 @@ Player player2 = new Player("Peter", 45, 50);
 
 string halloPlayer1 = player1.Greeting();
 string halloPlayer2 = player2.Greeting();
-
 Console.WriteLine(halloPlayer1);
 Console.WriteLine(halloPlayer2);
 
-int commitment1 = player1.GetCommitment();
-int commitment2 = player2.GetCommitment();
+game = checkGame(ref ball, player1, player2, ref game);
 
-bool res = checkGame(commitment1, commitment2, game);
+while(game) {
+    Console.WriteLine($"Das Spiel Status ist: {game}");
 
-//HauptLogik:
-    
-while(res && game) {
+    commitment1 = player1.GetCommitment();
+    commitment2 = player2.GetCommitment();
 
-Console.WriteLine($"Das Spiel Status ist: {res}");
 
     if (commitment1 > commitment2){
         ball += 1;
         Console.WriteLine($"{player1.name} hat eine höhere Zahl. Der Ball hat {ball} Position");
-        //score - commitment happens in class player and here, choose 1
-        // player1.score -= commitment1;
-        // player2.score -= commitment2;
-        res = checkGame(commitment1, commitment2, game);
+        game = checkGame(ref ball, player1, player2, ref game);
         Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
         Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
 
     } else if(commitment2 > commitment1){
-
         ball -= 1;
         Console.WriteLine($"{player2.name} hat eine höhere Zahl. Der Ball hat {ball} Position");
-        // player1.score -= commitment1;
-        // player2.score -= commitment2;
-        res = checkGame(commitment1, commitment2, game);
+        game = checkGame(ref ball, player1, player2, ref game);
         Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
         Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
     }
 
-    while (commitment1 == commitment2) {
-        Console.WriteLine($"Die Werte sind gleiche! Player geben jetzt ihnre Eingane erneut.");
+    if (commitment1 == commitment2) {
+        Console.WriteLine($"Die Werte sind gleiche! Player geben jetzt ihre Eingane erneut.");
         commitment1 = player1.GetCommitment();
         commitment2 = player2.GetCommitment();
     }
 
     if (player1.score == 1 && player2.score == 1 && ball == 0){
-         Console.WriteLine($"Der Gleichstand");
-         game = false;
+            Console.WriteLine($"Der Gleichstand");
+            game = false;
     }
 }
 
- bool checkGame(int commitment1, int commitment2, bool game){
+static bool checkGame(ref int ball, Player player1, Player player2, ref bool game){
 
     if(ball == 3) {
         Console.WriteLine($"{player1.name} hat gewinnt. Das Ende des Spieles ");
@@ -69,11 +63,11 @@ Console.WriteLine($"Das Spiel Status ist: {res}");
         game = false;
     }
   
-    else if(commitment1 == 0){
+    else if(player1.score == 0){
         Console.WriteLine("Player 1 hat verspielt. Das Ende des Spieles");
         game = false;
     }
-    else if(commitment2 == 0){
+    else if(player2.score == 0){
         Console.WriteLine("Player 2 hat verspielt. Das Ende des Spieles");
         game = false;
     }
