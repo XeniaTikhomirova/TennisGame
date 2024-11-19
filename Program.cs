@@ -10,7 +10,7 @@ Console.WriteLine("Das Spiel startet jetzt");
 
 Player player1 = new Player("Marcus", 50);
 //Player player2 = new Player("Peter", 45, 50);
-BotPlayer player2 = new BotPlayer("BOT", 50);
+BotPlayer player2 = new BotPlayer("Bot", 50);
 
 player1.Greeting();
 player2.Greeting();

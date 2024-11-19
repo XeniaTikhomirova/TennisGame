@@ -57,7 +57,7 @@ class Player {
         return commitment;
     }
 
-    public int doSubstruct(int commitment){
+    public virtual int doSubstruct(int commitment){
         score -= commitment;
         return score;
     }

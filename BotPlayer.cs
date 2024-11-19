@@ -1,12 +1,6 @@
 
 class BotPlayer :Player {
-    string name;
-    public BotPlayer(string aName,  int aScore) : base(aScore){
-        Random rnd = new Random();
-        score = rnd.Next(0, score);
-        //Console.WriteLine($"Robot hat {score}");
-}
-
+    public BotPlayer(string aName, int aScore) : base(aName, aScore){}
     public override void Greeting(){
         Console.WriteLine("Creating Bot Player ...");
     }
@@ -22,6 +16,11 @@ class BotPlayer :Player {
 
         Console.WriteLine($"Commitment bei {name} ist {commitmentRobot}");
         return commitmentRobot;
+    }
+
+        public virtual int doSubstruct(int commitmentRobot){
+        score -= commitmentRobot;
+        return score;
     }
 
 }
