@@ -1,16 +1,10 @@
 
 class BotPlayer :Player {
-    
-    public string
-     Name {
-        get;
-        set;
-    }
-
+    string name;
     public BotPlayer(string aName,  int aScore) : base(aScore){
         Random rnd = new Random();
-        Score = rnd.Next(0, Score);
-        Console.WriteLine($"Robot hat {Score}");
+        score = rnd.Next(0, score);
+        //Console.WriteLine($"Robot hat {score}");
 }
 
     public override void Greeting(){
@@ -21,12 +15,12 @@ class BotPlayer :Player {
 
         int commitmentRobot = 0;
 
-        Console.WriteLine($"{Name}, stellt seine Zahl ...");
+        Console.WriteLine($"{name}, stellt seine Zahl ...");
 
         Random rndRobot = new Random();
-        commitmentRobot = rndRobot.Next(1, Score);
+        commitmentRobot = rndRobot.Next(1, score);
 
-        Console.WriteLine($"Commitment bei {Name} ist {commitmentRobot}");
+        Console.WriteLine($"Commitment bei {name} ist {commitmentRobot}");
         return commitmentRobot;
     }
 
