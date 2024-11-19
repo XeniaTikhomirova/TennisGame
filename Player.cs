@@ -45,7 +45,6 @@ class Player {
         }
     
         //todo:commitment has to be the correct value, if the input has been changed in codelines 30-33
-
         //score -= commitment;  
 
         Console.WriteLine($"Commitment bei {name} ist {commitment}");
@@ -53,7 +52,7 @@ class Player {
         return commitment;
     }
 
-    public int doSubstract(int commitment){
+    public int doSubstruct(int commitment){
         score -= commitment;
         return score;
     }

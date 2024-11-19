@@ -28,15 +28,15 @@ while(game) {
         ball += 1;
         Console.WriteLine($"{player1.name} hat eine höhere Zahl. Der Ball hat {ball} Position");
         game = checkGame(ball, player1, player2, ref game);
-        Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
-        Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
+        // Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
+        // Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
 
     } else if(commitment2 > commitment1){
         ball -= 1;
         Console.WriteLine($"{player2.name} hat eine höhere Zahl. Der Ball hat {ball} Position");
         game = checkGame(ball, player1, player2, ref game);
-        Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
-        Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
+        // Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
+        // Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
     }
 
     else if (commitment1 == commitment2) {
@@ -44,31 +44,31 @@ while(game) {
         Console.WriteLine("Hier müssen wir neue Werte bekommen");
     }
 
-    else if (player1.score == 1 && player2.score == 1 && ball == 0){
-            Console.WriteLine($"Der Gleichstand");
-            game = false;
-    }
 
-    // player1.score = player1.doSubstract(commitment1);
-    // player2.score = player1.doSubstract(commitment2);
+    // player1.score = player1.doSubstruct(commitment1);
+    // player2.score = player1.doSubstruct(commitment2);
 }
 
-static int CheckSubstruckt(Player player1, Player player2, int commitment1, int commitment2){
+static void CheckSubstruckt(Player player1, Player player2, int commitment1, int commitment2){
     if(commitment1 != commitment2){
-        player1.score -=commitment1;
-        player2.score -=commitment2;
-        Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
-        Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
-    } return player1.score;
+    // player1.score -=commitment1;
+    // player2.score -=commitment2;
+
+    player1.score = player1.doSubstruct(commitment1);
+    player2.score = player2.doSubstruct(commitment2);
+
+    Console.WriteLine($"{player1.name} hat einen neuen Zwischenwert: {player1.score}");
+    Console.WriteLine($"{player2.name} hat einen neuen Zwischenwert: {player2.score}");
+    }
 }
 
 static bool checkGame(int ball, Player player1, Player player2, ref bool game){
 
-    if(ball == 3) {
+    if(ball == 3 || player1.score == 1 && player2.score == 1 && ball == 3) {
         Console.WriteLine($"{player1.name} hat gewinnt. Das Ende des Spieles ");
         game = false;
     }
-    else if(ball == -3) {
+    else if(ball == -3 || player1.score == 1 && player2.score == 1 && ball == -3) {
         Console.WriteLine($"{player2.name} hat gewinnt. Das Ende des Spieles");
         game = false;
     }
@@ -79,6 +79,11 @@ static bool checkGame(int ball, Player player1, Player player2, ref bool game){
     }
     else if(player2.score == 0){
         Console.WriteLine("Player 2 hat verspielt. Das Ende des Spieles");
+        game = false;
+    }
+
+    else if (player1.score == 1 && player2.score == 1 && ball == 0){
+        Console.WriteLine($"Der Gleichstand");
         game = false;
     }
     return game;
