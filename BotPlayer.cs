@@ -18,7 +18,7 @@ class BotPlayer :Player {
         return commitmentRobot;
     }
 
-        public virtual int doSubstruct(int commitmentRobot){
+        public override int doSubstruct(int commitmentRobot){
         score -= commitmentRobot;
         return score;
     }

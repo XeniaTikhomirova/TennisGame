@@ -16,7 +16,7 @@ player1.Greeting();
 player2.Greeting();
 
 while(game) {
-    Console.WriteLine($"Das Spiel Status ist: {game}");
+    //Console.WriteLine($"Das Spiel Status ist: {game}");
 
     commitment1 = player1.GetCommitment();
     commitment2 = player2.GetCommitment();
