@@ -13,11 +13,11 @@ class BotPlayer :Player {
 
         Random rndRobot = new Random();
         commitmentRobot = rndRobot.Next(1, score);
+        //commitmentRobot = 1;
 
         Console.WriteLine($"Commitment bei {name} ist {commitmentRobot}");
         return commitmentRobot;
     }
-
         public override int doSubstruct(int commitmentRobot){
         score -= commitmentRobot;
         return score;

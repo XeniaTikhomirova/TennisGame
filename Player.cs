@@ -30,7 +30,6 @@ class Player {
             bool res = int.TryParse(input, out commitment);
 
             if (!res){
-                //TODO: WHat if input was wrong
                 Console.WriteLine("Die Eingabe ist falsch!");
                 Console.WriteLine($"Commitment ist {commitment}");
                 continue;
@@ -48,9 +47,6 @@ class Player {
                 break;
             }
         }
-    
-        //todo:commitment has to be the correct value, if the input has been changed in codelines 30-33
-        //score -= commitment;  
 
         Console.WriteLine($"Commitment bei {name} ist {commitment}");
         //todo: returnvalue same as comment from line 35
