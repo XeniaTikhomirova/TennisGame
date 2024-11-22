@@ -1,4 +1,18 @@
-﻿
+﻿using Microsoft.Data.Sqlite;
+
+try
+{
+    using var connection = new SqliteConnection(@"Data Source=C:\\Users\\Xenia\\Xenia_Praktikum\\SQL_Learning\\db.sqlite\");
+    connection.Open();
+    
+    Console.WriteLine("Connected to the SQLite database!");
+    // connection.Close();
+
+}
+catch (SqliteException ex)
+{
+    Console.WriteLine(ex.Message);
+}
 
 bool game = true;
 int ball = 0;

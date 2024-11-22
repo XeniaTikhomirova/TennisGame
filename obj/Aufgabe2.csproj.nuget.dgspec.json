@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\Xenia\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Xenia\\Xenia_Praktikum\\Aufgabe2\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\Xenia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
