@@ -1,10 +1,10 @@
-﻿using System.Reflection.Metadata;
+﻿
 
 bool game = true;
 int ball = 0;
 
 // bool isPositive;
-int counter = 0;
+// int counter = 0;
 
 int commitment1;
 int commitment2;
@@ -30,13 +30,11 @@ while(game) {
     
     if (commitment1 > commitment2){
         // isPositive = true;
-        if(counter == 0){
-            ball += 1; 
-            // isPositive = true;
-            counter++;
-        }
-
-        Console.WriteLine($"Ball ist {ball}");
+        // if(counter == 0){
+        //     ball += 1; 
+        //     // isPositive = true;
+        //     counter++;
+        // }
 
         // if(ball == -2){
         //     Console.WriteLine("VON MINUS 2 ZUM PLUS");
@@ -47,43 +45,44 @@ while(game) {
         // } else if (ball == 0){
         //     Console.WriteLine("VON 0 ZUM PLUS");
         //     ball++;
-        // }
+        // } 
         
-
+        Console.WriteLine($"Ball ist {ball}");
         // if(!isPositive) {
-        // switch(ball){
-        //     case -2:
-        //         ball = 1;
-        //         // isPositive = true;
-        //         break;
-        //     case -1:
-        //         ball = 1;
-        //         // isPositive = true;
-        //         break;
-        //     case 0:
-        //         ball += 1;
-        //         // isPositive = true;
-        //         break;
-        //     default:
-        //         // ball += 1;
-        //     //    isPositive = true;
-        //         break;
-        // }
-    //}
 
-    Console.WriteLine($"{player1.name} hat eine höhere Zahl. Der Ball hat {ball} Position. Count ist {counter}");
+        switch(ball){
+            case -2:
+            case -1:
+                ball = 1;
+                Console.WriteLine($"BALL BEWEGT NACH PLUS BEREICH. BALL IST GLEICH 1: --> {ball}");
+                // isPositive = true;
+                break;
+            case 0:
+                ball += 1;
+                Console.WriteLine($"BALL IST GLEICH 1: --> {ball}");
+                // isPositive = true;
+                break;
+            default:
+                ball += 1;
+                Console.WriteLine($"NORMALE BEWEGUNG IN PLUS BEREICH: --> {ball}");
+            //    isPositive = true;
+                break;
+        // }
+    }
+
+    Console.WriteLine($"{player1.name} hat eine höhere Zahl. Der Ball hat {ball} Position.");
     // Console.WriteLine($"Der Ball befindet sich auf der {isPositive} Seite");
-    //game = checkGame(ball, player1, player2, ref game);
+    game = checkGame(ball, player1, player2, ref game);
 
     } else if(commitment2 > commitment1){
 
         // isPositive = false;
         
-        if(counter == 0){
-            ball -= 1; 
-            counter++;
-            // isPositive = false;
-        }
+        // if(counter == 0){
+        //     ball -= 1; 
+        //     counter++;
+        //     // isPositive = false;
+        // }
 
 
         // if(ball == 2){
@@ -97,27 +96,27 @@ while(game) {
 
         // if (isPositive) {
 
-            // switch(ball){
-            //     case 2:
-            //         ball = -1;
-            //         // isPositive = false;
-            //         break;
-            //     case 1:
-            //         ball = -1;
-            //         // isPositive = false;
-            //         break;                 
-            //     case 0:
-            //         ball -= 1;
-            //         // isPositive = false;
-            //         break;
-            //     default:
-            //         // ball -= 1;
-            //         // isPositive = false;
-            //         break;
-            // }
+            switch(ball){
+                case 2:
+                case 1:
+                    ball = -1;
+                    Console.WriteLine($"BALL  BEWEGT NACH MINUS BEREICH. BALL IST GLEICH -1 : --> {ball}");
+                    // isPositive = false;
+                    break;                 
+                case 0:
+                    ball -= 1;
+                    Console.WriteLine($"BALL IST GLEICH -1:: --> {ball}");
+                    // isPositive = false;
+                    break;
+                default:
+                    Console.WriteLine($"NORMALE BEWEGUNG iN MINUS BEREICH : --> {ball}");
+                    ball -= 1;
+                    // isPositive = false;
+                    break;
+            }
         // }
 
-        Console.WriteLine($"{player2.name} hat eine höhere Zahl. Der Ball hat {ball} Position.Count ist {counter}");
+        Console.WriteLine($"{player2.name} hat eine höhere Zahl. Der Ball hat {ball} Position.");
         // Console.WriteLine($"Der Ball befindet sich auf der {isPositive} Seite");
         game = checkGame(ball, player1, player2, ref game);
     }
@@ -171,3 +170,4 @@ static bool checkGame(int ball, Player player1, Player player2, ref bool game){
 
     return game;
 }
+
